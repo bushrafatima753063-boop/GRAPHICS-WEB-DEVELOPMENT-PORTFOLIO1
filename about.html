@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Winza Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(rgba(233, 30, 99, 0.7), rgba(212, 175, 55, 0.5)), url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      margin-top: 80px;
+    }
+    .about-hero h1 {
+      font-size: 56px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    .about-hero p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+    .about-section {
+      padding: 80px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .about-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .about-row:last-child {
+      margin-bottom: 0;
+    }
+    .about-text h2 {
+      font-size: 36px;
+      margin-bottom: 25px;
+      color: #000;
+      position: relative;
+      display: inline-block;
+    }
+    .about-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, #e91e63 0%, #f48fb1 100%);
+      border-radius: 2px;
+    }
+    .about-text p {
+      color: #666;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(233, 30, 99, 0.2);
+      position: relative;
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(233, 30, 99, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: 0.4s;
+    }
+    .about-image:hover::before {
+      opacity: 1;
+    }
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .about-image:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Values Section */
+    .values-section {
+      background: linear-gradient(135deg, #fff5f7 0%, #fff9f0 100%);
+      padding: 80px 60px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .value-card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: 0.4s;
+    }
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(233, 30, 99, 0.15);
+    }
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #e91e63 0%, #f48fb1 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 28px;
+      color: #fff;
+    }
+    .value-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+    .value-card p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    @media (max-width: 992px) {
+      .about-hero h1 {
+        font-size: 42px;
+      }
+      .about-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-row:nth-child(even) .about-image {
+        order: -1;
+      }
+      .about-section {
+        padding: 60px 30px;
+      }
+      .about-text h2 {
+        font-size: 28px;
+      }
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .values-section {
+        padding: 60px 30px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-hero {
+        height: 300px;
+      }
+      .about-hero h1 {
+        font-size: 32px;
+      }
+      .about-section {
+        padding: 40px 20px;
+      }
+      .about-image img {
+        height: 250px;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .values-section {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-bold">Winza</span>
+        <span class="logo-light">STORE</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="icons">
+        <div class="icon-box" onclick="toggleSearch()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="icon-box" onclick="toggleCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="count" id="cartCount">0</span>
+        </div>
+        <div class="icon-box" onclick="toggleWishlistSidebar()">
+          <i class="fa-regular fa-heart"></i>
+          <span class="count" id="wishCount">0</span>
+        </div>
+        <div class="icon-box hamburger" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
+    
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="if(event.key==='Enter') searchProducts()">
+        <button onclick="searchProducts()"><i class="fa-solid fa-search"></i></button>
+        <button onclick="closeSearch()"><i class="fa-solid fa-times"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#products">Shop</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+      <button onclick="toggleCart()"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Wishlist Sidebar -->
+  <div class="wishlist-sidebar" id="wishlistSidebar">
+    <div class="wishlist-header">
+      <h3><i class="fa-solid fa-heart"></i> Your Wishlist</h3>
+      <button onclick="toggleWishlistSidebar()"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="wishlist-items" id="wishlistItems">
+      <p class="empty-wishlist">Your wishlist is empty</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div>
+      <h1>About Us</h1>
+      <p>Where Fashion Meets Passion</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="about-section">
+    <div class="about-row">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Winza Store was born from a dream to make fashion accessible, affordable, and absolutely stunning for everyone. What started as a small passion project in 2018 has blossomed into a beloved destination for fashion enthusiasts worldwide.</p>
+        <p>Our journey began with a simple belief: that everyone deserves to look and feel their best without breaking the bank. From our very first collection to thousands of happy customers today, we've stayed true to our roots while continuously evolving with the latest trends.</p>
+        <p>Every piece in our collection is handpicked with love, ensuring quality, style, and comfort. We work directly with talented designers and ethical manufacturers to bring you fashion that not only looks good but feels good too.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600" alt="Our Fashion Store">
+      </div>
+    </div>
+
+    <div class="about-row">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600" alt="Our Mission">
+      </div>
+      <div class="about-text">
+        <h2>Our Mission</h2>
+        <p>At Winza Store, our mission is to empower individuals through fashion. We believe that what you wear is an expression of who you are, and we're here to help you tell your unique story.</p>
+        <p>We're committed to sustainable fashion practices, using eco-friendly materials and supporting fair trade. Our goal is to create a positive impact on both our customers and the planet we all share.</p>
+        <p>With every purchase, you're not just buying clothes – you're joining a community that values style, quality, and conscious consumerism. Together, we're making fashion better, one beautiful piece at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="values-section">
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <h3>Quality First</h3>
+        <p>We never compromise on quality. Every product is carefully inspected to meet our high standards.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <h3>Eco-Friendly</h3>
+        <p>Sustainable materials and ethical practices are at the heart of everything we do.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h3>Customer Love</h3>
+        <p>Your satisfaction is our priority. We're here to make your shopping experience delightful.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <h3>Fast Delivery</h3>
+        <p>Quick and reliable shipping to get your favorites to you as soon as possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>CATEGORIES</h4>
+        <ul>
+          <li><a href="index.html#products" onclick="filterCategory('women')">Women</a></li>
+          <li><a href="index.html#products" onclick="filterCategory('men')">Men</a></li>
+          <li><a href="index.html#products" onclick="filterCategory('jewelery')">Jewelry</a></li>
+          <li><a href="index.html#products" onclick="filterCategory('electronics')">Electronics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>HELP</h4>
+        <ul>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>GET IN TOUCH</h4>
+        <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 967166879</p>
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>NEWSLETTER</h4>
+        <input type="email" id="newsletterEmail" placeholder="email@example.com">
+        <button class="subscribe" onclick="subscribeNewsletter()">SUBSCRIBE</button>
+      </div>
+    </div>
+
+    <div class="payments">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex">
+    </div>
+
+    <div class="footer-end">
+      <a href="#top" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span id="toastMessage">Message</span>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
